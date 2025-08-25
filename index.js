@@ -32,12 +32,28 @@ function getDate(){
 }
     
 
+// function to validate time in 24hours input
+function getTime(){
+    let regex = /^(?:[01]\d|2[0-3]):[0-5]\d$/;
+    let time;
+    while(true){
+        time = prompt("Enter Time for task [HH:MM]: ");
+        if(regex.test(time)){
+            return time;
+        }
+        console.log("Invalid Input, Please Enter Time in 24hrs Format")
+    }
+}
+
+
+
+
 
 function addtask(){
     console.log("");
     console.log("Add New Task");
     let name = prompt("Enter Name of task: ");
-    let time = prompt("Enter Time for task [HH:MM]: ");
+    let time = getTime();
     let date = getDate();
     let place = prompt("Enter location for task: ");
 
