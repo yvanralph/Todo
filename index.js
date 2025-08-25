@@ -47,12 +47,24 @@ function getTime(){
 
 
 
+//function to validate name input
+function getName(){
+    let name;
+    while (true){
+        name = prompt("Enter Taskname: ");
+        if (name.trim() !== ""){
+            return name;
+        }
+        console.log("Input can't be Empty, Enter Correct Taskname")
+    }
+}
+
 
 
 function addtask(){
     console.log("");
     console.log("Add New Task");
-    let name = prompt("Enter Name of task: ");
+    let name = getName();
     let time = getTime();
     let date = getDate();
     let place = prompt("Enter location for task: ");
