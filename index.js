@@ -16,12 +16,29 @@ function getuserchoice(){
     return choice 
 }
 
+// function to validate date input
+function getDate(){
+    let regex = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
+    let date;
+    
+    while (true){
+        date = prompt("Enter Date for task [YYYY-MM-DD]: ");
+        if (regex.test(date)){
+            return date;
+        }
+
+        console.log("Invalid input: [Valid Input YYYY-MM-DD]")
+    }
+}
+    
+
+
 function addtask(){
     console.log("");
     console.log("Add New Task");
     let name = prompt("Enter Name of task: ");
     let time = prompt("Enter Time for task [HH:MM]: ");
-    let date = prompt("Enter Date for task [YYYY-MM-DD]: ");
+    let date = getDate();
     let place = prompt("Enter location for task: ");
 
     let task = {
@@ -52,7 +69,7 @@ function main(){
     }
     else if(choice === "3"){
         console.log("");
-        console.log("****Closing application, Thank You *****")
+        console.log("**** Closing application, Thank You *****")
         return
     }
     else{
